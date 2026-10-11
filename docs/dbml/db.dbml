@@ -1,0 +1,113 @@
+Table "einheiten" {
+  "einheit_id" INT [pk, increment]
+  "name" VARCHAR(20) [unique, not null]
+  "dimension" VARCHAR(30) [not null]
+}
+
+Table "zutaten" {
+  "zutat_id" INT [pk, increment]
+  "bezeichnung" VARCHAR(150) [unique, not null]
+  "rezept_einheit_id" INT [not null]
+}
+
+Table "lieferanten" {
+  "lieferant_id" INT [pk, increment]
+  "name" VARCHAR(150) [not null]
+}
+
+Table "lieferanten_zutaten" {
+  "lieferant_zutat_id" INT [pk, increment]
+  "lieferant_id" INT [not null]
+  "zutat_id" INT [not null]
+  "gebinde_bezeichnung" VARCHAR(50) [not null]
+  "gebinde_in_rezept_einheiten" DECIMAL(12,3) [not null]
+  "gebindepreis" DECIMAL(12,2) [not null]
+  "umrechnung_geprueft_am" DATETIME
+  "ist_standard" BOOLEAN [not null, default: FALSE]
+
+  Checks {
+    `gebinde_in_rezept_einheiten > 0` [name: 'chk_lz_gebindeinhalt']
+    `gebindepreis >= 0` [name: 'chk_lz_gebindepreis']
+  }
+
+  Indexes {
+    (lieferant_id, zutat_id) [unique, name: "uq_lieferant_zutat"]
+  }
+}
+
+Table "komponenten" {
+  "komponente_id" INT [pk, increment]
+  "komponentenname" VARCHAR(150) [not null]
+}
+
+Table "komponenten_zutaten" {
+  "komponente_id" INT [not null]
+  "zutat_id" INT [not null]
+  "menge" DECIMAL(12,3) [not null]
+
+  Checks {
+    `menge > 0` [name: 'chk_kz_menge']
+  }
+
+  Indexes {
+    (komponente_id, zutat_id) [pk]
+  }
+}
+
+Table "gerichte" {
+  "gericht_id" INT [pk, increment]
+  "gerichtname" VARCHAR(150) [not null]
+  "beschreibung" TEXT
+  "kategorie" VARCHAR(50)
+  "basisportionen" INT [not null]
+
+  Checks {
+    `basisportionen > 0` [name: 'chk_gerichte_basisportionen']
+  }
+}
+
+Table "gericht_komponenten" {
+  "gericht_id" INT [not null]
+  "komponente_id" INT [not null]
+  "menge" DECIMAL(12,3) [not null]
+
+  Checks {
+    `menge > 0` [name: 'chk_gk_menge']
+  }
+
+  Indexes {
+    (gericht_id, komponente_id) [pk]
+  }
+}
+
+Table "allergene" {
+  "allergen_id" INT [pk, increment]
+  "allergenname" VARCHAR(100) [unique, not null]
+}
+
+Table "allergen_zutat" {
+  "zutat_id" INT [not null]
+  "allergen_id" INT [not null]
+
+  Indexes {
+    (zutat_id, allergen_id) [pk]
+  }
+}
+
+Ref "fk_zutaten_einheit":"einheiten"."einheit_id" <? "zutaten"."rezept_einheit_id" [update: cascade, delete: restrict]
+
+Ref "fk_lz_lieferant":"lieferanten"."lieferant_id" <? "lieferanten_zutaten"."lieferant_id" [update: cascade, delete: restrict]
+
+Ref "fk_lz_zutat":"zutaten"."zutat_id" <? "lieferanten_zutaten"."zutat_id" [update: cascade, delete: restrict]
+
+Ref "fk_kz_komponente":"komponenten"."komponente_id" <? "komponenten_zutaten"."komponente_id" [update: cascade, delete: cascade]
+
+Ref "fk_kz_zutat":"zutaten"."zutat_id" <? "komponenten_zutaten"."zutat_id" [update: cascade, delete: restrict]
+
+Ref "fk_gk_gericht":"gerichte"."gericht_id" <? "gericht_komponenten"."gericht_id" [update: cascade, delete: cascade]
+
+Ref "fk_gk_komponente":"komponenten"."komponente_id" <? "gericht_komponenten"."komponente_id" [update: cascade, delete: restrict]
+
+Ref "fk_az_zutat":"zutaten"."zutat_id" <? "allergen_zutat"."zutat_id" [update: cascade, delete: cascade]
+
+Ref "fk_az_allergen":"allergene"."allergen_id" <? "allergen_zutat"."allergen_id" [update: cascade, delete: restrict]
