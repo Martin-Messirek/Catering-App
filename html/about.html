@@ -1,27 +1,61 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Über uns</title>
+    <link rel="stylesheet" href="../styles/root.css">
+    <link rel="stylesheet" href="../styles/standard.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/lists.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="../assets/icons/site.webmanifest">
 </head>
+
 <body onload="includeHTML()">
 
     <div w3-include-html="../templates/header.html"></div>
 
-    <h1>Lichtental Catering – Tradition trifft moderne Küche</h1>
+    <nav class="header-nav">
+        <!-- Beim Deployment /Catering-App entfernen oder durch den tatsächlichen Unterpfad ersetzen. -->
+        <ul>
+            <li><a href="/Catering-App/html/speisenangebot.html">Speisenangebot</a></li>
+            <li><a href="/Catering-App/html/buchen.html">Buchen</a></li>
+            <li><a href="/Catering-App/html/about.html">Über uns</a></li>
+            <li><a href="/Catering-App/html/kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
 
-    <p>Lichtental Catering verbindet Wiener Gastlichkeit mit moderner Cateringplanung. Wir legen Wert auf sorgfältig zusammengestellte Rezepte, 
-        transparente Zutatenkosten und eine zuverlässige Planung – vom kleinen Empfang bis zur großen Veranstaltung.</p>
+    <main class="content-width">
 
-    <p>Unsere Wurzeln liegen in der traditionsreichen Wiener Gastwirtschaft. Diese Geschichte verbinden wir heute mit zeitgemäßen 
-        Arbeitsweisen und digitalen Lösungen, um klassische Gastlichkeit und moderne Anforderungen miteinander zu vereinen.</p>
+        <h1>Lichtental Catering – Tradition trifft moderne Küche</h1>
 
-    <a href="history.html">Unsere Familiengeschichte entdecken</a>
-    
+        <p>Lichtental Catering verbindet Wiener Gastlichkeit mit moderner Cateringplanung. Wir legen Wert auf sorgfältig
+            zusammengestellte Rezepte,
+            transparente Zutatenkosten und eine zuverlässige Planung – vom kleinen Empfang bis zur großen Veranstaltung.
+        </p>
 
-<script src="../scripts/init.js"></script>
+        <p>Unsere Wurzeln liegen in der traditionsreichen Wiener Gastwirtschaft. Diese Geschichte verbinden wir heute
+            mit
+            zeitgemäßen
+            Arbeitsweisen und digitalen Lösungen, um klassische Gastlichkeit und moderne Anforderungen miteinander zu
+            vereinen.</p>
+
+        <a href="history.html">Unsere Familiengeschichte entdecken</a>
+
+    </main>
+
+
+
+    <div w3-include-html="../templates/footer.html"></div>
+
+    <script src="../scripts/init.js"></script>
     <script src="../scripts/script.js"></script>
     <script src="../scripts/render.js"></script>
 </body>
+
 </html>

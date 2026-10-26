@@ -1,13 +1,15 @@
 /* Styling-Standards für die gesamte Seite */
 
 html {
-    box-sizing: border-box; 
+    box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: inherit;
-    margin: 0; 
+    margin: 0;
     padding: 0;
 }
 
@@ -25,20 +27,56 @@ li {
 
 .content-width {
     max-width: 900px;
-    margin-inline: auto; /* Inhalt horizontal zentrieren */		
+    margin-inline: auto;
+    /* Inhalt horizontal zentrieren */
     padding-inline: 1rem;
-} 
+}
 
 .app-content-height {
-    min-height: 100vh; /* Höhe für ältere Browser */
-    min-height: 100dvh; /* Höhe für Mobilgeräte */
+    min-height: 100vh;
+    /* Höhe für ältere Browser */
+    min-height: 100dvh;
+    /* Höhe für Mobilgeräte */
 }
 
 .d-none {
     display: none;
 }
 
-.dialog-bg {
+/* Seiteneffekte */
+
+/* Neue Seite sanft einblenden */
+body {
+    animation: fade-in var(--page-transition-duration) ease-out;
+    transition: opacity var(--page-transition-duration) ease-out;
+}
+
+/* Alte Seite beim Navigieren ausblenden */
+body.page-leaving {
+    animation: none;
+    opacity: 0.6;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Barrierefreiheit */
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+        transition: none;
+    }
+}
+
+
+/*.dialog-bg {
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 2;
     position: fixed;
@@ -46,6 +84,90 @@ li {
     right: 0;
     top: 0;
     bottom: 0;
+} */
+
+main {
+    min-height: 80vh;
+    padding: 5vh 2vw;
 }
 
 
+/* Header */
+
+header {
+    background-color: var(--ochre-light6);
+    
+}
+
+.top-bar {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 36px;
+    aspect-ratio: 1;
+}
+
+/* Nav */
+
+.header-nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--ochre-light6);
+
+
+}
+
+.header-nav>ul {
+    display: flex;
+    justify-content: center;
+
+
+
+}
+
+.header-nav>ul>li {
+    
+
+}
+
+
+
+.header-nav>ul a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--dark);
+
+}
+
+.header-nav>ul a:hover {
+    background-color: var(--ochre-light4);
+}
+
+
+
+
+/* Footer */
+
+footer {
+    height: 200px;
+    background-color: var(--ochre-light6);
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    padding-top: 32px;
+}
+
+.footer-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+}

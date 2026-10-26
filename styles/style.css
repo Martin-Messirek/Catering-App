@@ -1,41 +1,14 @@
 /* Styling für die App */
 
-/* Header */
-
-.header-nav {
-    
-}
-
-.header-nav > ul {
-    display: flex;
-    justify-content: center;
-    
-
-
-}
-
-.header-nav > ul > li {
-    background-color: var(--color-ochre);
-
-}
-
-
-
-.header-nav > ul a {
-    display: block;
-    padding: 12px 20px;
-    color: var(--color-dark);
-
-}
-
-.header-nav > ul a:hover {
-    background-color: var(--color-ochre-dark1);
-}
-
 
 
 
 /* Landing Page */
+
+.landing-page-main {
+    min-height: 80vh;
+    padding-top: 10vh;
+}
 
 .brand-card {
     padding: 56px 24px;
@@ -43,12 +16,12 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: var(--color-green);
+    background-color: var(--green);
     border-radius: 20px;
 }
 
 .brand-name {
-    color: var(--color-dark);
+    color: var(--dark);
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(2.5rem, 7vw, 4rem);
     font-weight: 400;
@@ -58,7 +31,7 @@
 .brand-subtitle {
     margin: 12px 0 22px;
 
-    color: var(--color-dark);
+    color: var(--dark);
     font-family: Arial, sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
@@ -68,7 +41,7 @@
 .brand-divider {
     width: 64px;
     height: 3px;
-    background-color: var(--color-ochre);
+    background-color: var( --ochre);
     border-radius: 2px;
 }
 

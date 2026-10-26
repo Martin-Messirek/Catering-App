@@ -1,13 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Buchung</title>
+    <link rel="stylesheet" href="../styles/root.css">
+    <link rel="stylesheet" href="../styles/standard.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/lists.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="../assets/icons/site.webmanifest">
 </head>
+
 <body onload="includeHTML()">
 
     <div w3-include-html="../templates/header.html"></div>
+
+    <nav class="header-nav">
+        <!-- Beim Deployment /Catering-App entfernen oder durch den tatsächlichen Unterpfad ersetzen. -->
+        <ul>
+            <li><a href="/Catering-App/html/speisenangebot.html">Speisenangebot</a></li>
+            <li><a href="/Catering-App/html/buchen.html">Buchen</a></li>
+            <li><a href="/Catering-App/html/about.html">Über uns</a></li>
+            <li><a href="/Catering-App/html/kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main class="content-width">
+
+        <h1>Buchung</h1>
+    </main>
 
     <!--Datum, Uhrzeit, Personenzahl, Serviceart und Veranstaltungsort. 
     
@@ -19,12 +45,14 @@
     Die Bestellseite bietet beispielsweise drei Dropdown-Felder für Hauptgerichte und zwei Beilagen sowie zusätzliche Checkboxen für Salate, weitere Beilagen und Hauptkomponenten wie Fleisch. Die genaue Auswahl und Darstellung kann abhängig von der gewählten Serviceart variieren.
     
     Für die erste Version wird pro Bestellung genau eine Serviceart gewählt: Buffet, Flying Buffet oder Tellerservice.-->
-    
 
 
+    <div w3-include-html="../templates/footer.html"></div>
 
-   <script src="../scripts/init.js"></script>
+
+    <script src="../scripts/init.js"></script>
     <script src="../scripts/script.js"></script>
     <script src="../scripts/render.js"></script>
 </body>
+
 </html>

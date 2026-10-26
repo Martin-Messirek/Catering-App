@@ -4,42 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catering-Einkaufs- und Rezept-App</title>
+    <title>Lichtental Catering</title>
+    <link rel="stylesheet" href="styles/root.css">
+    <link rel="stylesheet" href="styles/standard.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/lists.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
 </head>
 
 <body onload="includeHTML()">
 
-    <div w3-include-html="./templates/header.html"></div>
+    <div class="top" w3-include-html="./templates/header.html"></div>
 
-    <section class="brand-card content-width">
-    <p>Blatt-Logo</p>
-
-    <h1 class="brand-name">Lichtental</h1>
-
-    <p class="brand-subtitle">CATERING & EVENTPLANUNG</p>
-
-    <div class="brand-divider"></div>
-
-    </section>
-
+    <nav class="header-nav">
+        <!-- Beim Deployment /Catering-App entfernen oder durch den tatsächlichen Unterpfad ersetzen. -->
+        <ul>
+            <li><a href="/Catering-App/html/speisenangebot.html">Speisenangebot</a></li>
+            <li><a href="/Catering-App/html/buchen.html">Buchen</a></li>
+            <li><a href="/Catering-App/html/about.html">Über uns</a></li>
+            <li><a href="/Catering-App/html/kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
 
 
-    <footer>
+    <main class="landing-page-main content-width">
+        <section class="brand-card">
+            <p>Blatt-Logo</p>
+
+            <h1 class="brand-name">Lichtental</h1>
+
+            <p class="brand-subtitle">CATERING & EVENTPLANUNG</p>
+
+            <div class="brand-divider"></div>
+
+        </section>
+
+    </main>
 
 
-        <div class="footer-nav">
-            <ul>
-                <li><a href="">Impressum</a></li>
-
-                <!-- Catering Gmbh
-                  -->
-                <li><a href="">Datenschutz</a></li>
-            </ul>
-        </div>
-    </footer>
 
 
+
+
+
+    <div w3-include-html="./templates/footer.html"></div>
 
     <script src="scripts/init.js"></script>
     <script src="scripts/script.js"></script>

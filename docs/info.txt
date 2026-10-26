@@ -1,0 +1,12 @@
+Farben
+
+    
+https://coolors.co/dbcfb0-bfc8ad-dae7da-718f94-545775
+https://coolors.co/628395-96897b-dbad6a-cf995f-d0ce7c
+
+
+Icon
+#DBAD6A
+#628395
+Font:Italianno
+https://favicon.io/favicon-generator/
