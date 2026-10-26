@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
@@ -8,10 +8,43 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
+<body onload="includeHTML()">
 
-    <h1>Catering-Einkaufs- und Rezept-App</h1>
+    <div w3-include-html="./templates/header.html"></div>
 
+    <section class="brand-card content-width">
+    <p>Blatt-Logo</p>
+
+    <h1 class="brand-name">Lichtental</h1>
+
+    <p class="brand-subtitle">CATERING & EVENTPLANUNG</p>
+
+    <div class="brand-divider"></div>
+
+    </section>
+
+
+
+    <footer>
+
+
+        <div class="footer-nav">
+            <ul>
+                <li><a href="">Impressum</a></li>
+
+                <!-- Catering Gmbh
+                  -->
+                <li><a href="">Datenschutz</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+
+    <script src="scripts/init.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/render.js"></script>
 </body>
+
 
 </html>
